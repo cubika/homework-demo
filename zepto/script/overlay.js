@@ -5,6 +5,15 @@
 		horizontal : 220
 	};
 
+	var src = 
+		'<div class="overlay">\
+			<img src="" alt="">\
+			<div class="description">\
+				<h3 class="title"></h3>\
+			</div>\
+		</div>';
+
+	// 合理设置图片的大小和位置
 	function getPosition(wrapper, img) {
 		var finalW, finalH,
 			imgW = img.width, 
@@ -42,6 +51,7 @@
 		}
 	}
 
+	// 重新调整图片大小
 	function resizeHandler(img, margins) {
 		var pos = getPosition({
 			width: $(window).width() - margins.horizontal,
@@ -59,7 +69,8 @@
 		});
 	}
 
-	$.fn.Overlay = function(overlay) {
+	$.fn.Overlay = function() {
+		var overlay = $(src).appendTo(document.body);
 		var img = overlay.find("img");
 		var title = overlay.find(".title");
 

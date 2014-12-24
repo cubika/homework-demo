@@ -36,7 +36,7 @@ var source =
 // 渲染模板
 var template = Handlebars.compile(source);
 var html = '';
-var count = Mock.Random.integer(3, 10);
+var count = Mock.Random.integer(5, 15);
 
 for(var i=0; i<count; i++){
 	html += template(Mock.mock(dtd));

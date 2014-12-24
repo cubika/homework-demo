@@ -4,9 +4,11 @@ $(window).on('load', function() {
 		e.preventDefault();
 	});
 
+	// 轮播
 	$(".slider").slide({
 		autoplay: true
 	});
 
-	$("#part2 img").Overlay($(".overlay"));
+	// 弹浮层
+	$("#part2 img").Overlay();
 });

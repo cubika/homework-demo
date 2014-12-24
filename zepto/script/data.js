@@ -33,6 +33,7 @@ var source =
 		</div>\
 	</div>';
 
+// 渲染模板
 var template = Handlebars.compile(source);
 var html = '';
 var count = Mock.Random.integer(3, 10);

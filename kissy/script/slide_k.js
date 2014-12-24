@@ -18,7 +18,9 @@ KISSY.add('slider', function(S, DOM, Event){
 		var timer = null;
 		var that = this;
 
-		DOM.addClass(container, 'slider');
+		if(!DOM.hasClass(container, 'slider')) {
+			DOM.addClass(container, 'slider');
+		}
 		var backgroud;
 		if(DOM.parent(DOM.get('img'), 'a')) {
 			backgroud = S.all('<div class="background"></div>');

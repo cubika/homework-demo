@@ -5,6 +5,14 @@ KISSY.add('overlay', function(S, DOM, Event) {
 		horizontal : 220
 	};
 
+	var src = 
+		'<div class="overlay">\
+			<img src="" alt="">\
+			<div class="description">\
+				<h3 class="title"></h3>\
+			</div>\
+		</div>';
+
 	function getPosition(wrapper, img) {
 		var finalW, finalH,
 			imgW = img.width, 
@@ -59,7 +67,9 @@ KISSY.add('overlay', function(S, DOM, Event) {
 		});
 	}
 
-	return function(imgs, overlay) {
+	return function(imgs) {
+		var overlay = S.all(src);
+		DOM.append(overlay, document.body);
 		var img = S.all("img", overlay);
 		var title = S.all(".title", overlay);
 		Event.on(imgs, 'click', function(e) {

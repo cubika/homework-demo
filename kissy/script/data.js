@@ -37,6 +37,7 @@ KISSY.add('mockdata', function(S, Mock, XTemplate){
 	var html = '';
 	var count = Mock.Random.integer(3, 10);
 
+	// 渲染模板
 	for(var i=0; i<count; i++){
 		html += new XTemplate(source).render(Mock.mock(dtd));
 	}	

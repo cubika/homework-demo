@@ -1,0 +1,77 @@
+.slider{
+	position: relative;
+	display: block;
+	margin: 0 auto;
+}
+.slider .window{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.slider .window .background{
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+}
+.slider .window .slide{
+	float: left;
+}
+.slider .arrow{
+	position: absolute;
+	display: block;
+	overflow: hidden;
+	background: url(../img/arrow.png) no-repeat;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+.slider .prev{
+	background-position: -10px -40px;
+	top: 50%;
+	left: 8px;
+}
+.slider .next{
+	background-position: -70px -40px;
+	top: 50%;
+	right: 8px;
+}
+.slider .prev:hover{
+	background-position: -130px -40px;
+}
+.slider .next:hover{
+	background-position: -190px -40px;
+}
+.slider .nav{
+	position: absolute;
+	height: 20px;
+	line-height: 20px;
+	bottom: 10px;
+	left: 50%;
+}
+.slider .nav li{
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	position: relative;
+	right: 50%;
+	float: left;
+	border-radius: 10px;
+	overflow: hidden;
+	cursor: pointer;
+	margin-right: 8px;
+	background-color: #000;
+	text-align: center;
+}
+.slider .nav li.selected{
+	background-color: #c40000;
+}
+.slider .nav li a{
+	color: #fff;
+}
+.slider img{
+	max-width: 100%;
+	background-size: contain;
+}

@@ -56,8 +56,8 @@ KISSY.add('slider', function(S, DOM, Event){
 			DOM.append(S.all('<li><a href="">' + (i+1) + '</a></li>'), nav);
 		}
 		DOM.addClass(S.all("li", nav).item(current), 'selected');
-		Event.on('click', function(e) {
-			var li = DOM.parent(e.target, 'li');
+		Event.delegate(nav, 'click', 'li', function(e) {
+			var li = e.target.tagName.toLowerCase() == 'li' ? e.target : DOM.parent(e.target, 'li');
 			current = S.indexOf(li, DOM.children(DOM.parent(li)));
 			that.slideOnce();
 			e.halt();

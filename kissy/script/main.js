@@ -2,8 +2,7 @@ KISSY.use('slider, mockdata, event, overlay, node', function(S, Slider, mockdata
 	// 轮播
 	S.ready(function() {
 		new Slider(S.all(".slider"), {
-			autoplay: true,
-			control: true
+			autoplay: true
 		});
 	});
 
@@ -11,7 +10,7 @@ KISSY.use('slider, mockdata, event, overlay, node', function(S, Slider, mockdata
 	S.all("#part2").append(mockdata);
 
 	Event.on('a', 'click', function(e) {
-		e.halt();
+		e.preventDefault();
 	});
 
 	// 弹出浮层

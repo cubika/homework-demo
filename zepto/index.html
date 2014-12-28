@@ -4,9 +4,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
 	<title>Demo Zepto Version</title>
+	<!-- build:css dist/style.min.css -->
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/slider_z.css">
 	<link rel="stylesheet" href="css/style.css">
+	<!-- endbuild -->
 </head>
 <body>
 	<div class="container" id="part1">
@@ -25,12 +27,17 @@
 		<h1 class="title">第二部分：商品列表</h1>	
 	</div>
 
+	<!-- build:js dist/lib.min.js -->
 	<script src="script/zepto.js"></script>
 	<script src="script/mock.js"></script>
 	<script src="script/handlebars-v2.0.0.js"></script>
+	<!-- endbuild -->
+
+	<!-- build:js dist/app.min.js -->
 	<script src="script/data.js"></script>
 	<script src="script/slide_z.js"></script>
 	<script src="script/overlay.js"></script>
 	<script src="script/main.js"></script>
+	<!-- endbuild -->
 </body>
 </html>

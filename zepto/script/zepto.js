@@ -2077,4 +2077,4 @@ window.$ === undefined && (window.$ = Zepto)
     'doubleTap', 'tap', 'singleTap', 'longTap'].forEach(function(eventName){
     $.fn[eventName] = function(callback){ return this.on(eventName, callback) }
   })
-})(Zepto)
+})(Zepto);

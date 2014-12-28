@@ -16,6 +16,12 @@
 	top: 0;
 	left: 0;
 }
+.slider img{
+	visibility: hidden;
+}
+.slider .window img{
+	visibility: visible;
+}
 .slider .window .slide{
 	float: left;
 }

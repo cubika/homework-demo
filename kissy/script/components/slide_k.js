@@ -1,4 +1,4 @@
-KISSY.add('slider', function(S, DOM, Event){
+KISSY.add(function(S, DOM, Event){
 
 	function Slider(container, options) {
 		this.defaults = {

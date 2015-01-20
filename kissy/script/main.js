@@ -1,4 +1,4 @@
-KISSY.use('slider, mockdata, event, overlay, node', function(S, Slider, mockdata, Event, Overlay) {
+KISSY.use('components/slide_k, components/data, event, components/overlay, node', function(S, Slider, mockdata, Event, Overlay) {
 	// 轮播
 	S.ready(function() {
 		new Slider(S.all(".slider"), {

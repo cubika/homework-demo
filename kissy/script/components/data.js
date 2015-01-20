@@ -1,4 +1,4 @@
-KISSY.add('mockdata', function(S, Mock, XTemplate){
+KISSY.add(function(S, Mock, XTemplate){
 	var dtd = {
 		'price|100-500': 128,
 		'shop|1': ['特步', '安踏', '匹克', '鸿星尔克', '乔丹'],

@@ -1,4 +1,4 @@
-KISSY.add('overlay', function(S, DOM, Event) {
+KISSY.add(function(S, DOM, Event) {
 
 	var margins = {
 		vertical : 140,

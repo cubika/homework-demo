@@ -27,21 +27,21 @@
 		<h1 class="title">第二部分：商品列表</h1>
 	</div>
 
-	<script src="//g.alicdn.com/kissy/k/1.4.7/seed.js" data-config="{combine:true}"></script>
+	<script src="//g.alicdn.com/kissy/k/1.4.7/seed.js"></script>
 	<script>
 		KISSY.config({
+			combine: false,
 		    packages: {
 		        mock: {
 		            base: 'http://mockjs.com/dist/'
 		        },
 		        components: {
-		        	base: 'script',
-		        	combine: false
+		        	base: 'script'
 		        }
 		    }
 		});
-	</script>
 
-	<script src="script/main.js"></script>
+		KISSY.use('components/main');
+	</script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-KISSY.use('components/slide_k, components/data, event, components/overlay, node', function(S, Slider, mockdata, Event, Overlay) {
+KISSY.add(function(S, Slider, mockdata, Event, Overlay) {
 	// 轮播
 	S.ready(function() {
 		new Slider(S.all(".slider"), {
@@ -15,4 +15,6 @@ KISSY.use('components/slide_k, components/data, event, components/overlay, node'
 
 	// 弹出浮层
 	Overlay(S.all("img", "#part2"));
+}, {
+	requires: ["./slide_k", "./data", "event", "./overlay", "node"]
 });

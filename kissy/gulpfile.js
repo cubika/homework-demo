@@ -1,22 +1,32 @@
 var gulp = require('gulp');
-var usemin = require('gulp-usemin');
+var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-minify-css');
 var minifyHtml = require('gulp-minify-html');
 var connect = require('gulp-connect');
 var watch = require('gulp-watch');
+var kmc = require('kmc');
 
-gulp.task('usemin', function() {
-	gulp.src("index.html")
-		.pipe(usemin({
-			css: [minifyCss(), 'concat'],
-			html: [minifyHtml({empty: true})],
-      		js: [uglify()]
-		}))
-		.pipe(gulp.dest('build/'));
+kmc.config({
+    packages: {
+        mock: {
+            base: 'http://mockjs.com/dist/'
+        },
+        components: {
+        	base: 'script'
+        }
+    }
+});
 
-	gulp.src('img/*')
-		.pipe(gulp.dest('build/img/'));
+gulp.task('css', function() {
+	gulp.src("css/*.css")
+		.pipe(minifyCss())
+		.pipe(concat('style.min.css'))
+		.pipe(gulp.dest('build'));
+});
+
+gulp.task('kmc', function() {
+	kmc.build('script/components/main.js','build/components/main.js');
 });
 
 gulp.task('develop', function() {
@@ -27,4 +37,4 @@ gulp.task('develop', function() {
 		.pipe(connect.reload());
 });
 
-gulp.task('product', ['usemin']);
+gulp.task('default', ['css', 'kmc']);

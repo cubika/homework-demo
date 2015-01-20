@@ -4,11 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
 	<title>Demo</title>
-	<!-- build:css dist/style.min.css -->
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/slider_z.css">
-	<link rel="stylesheet" href="css/style.css">
-	<!-- endbuild -->
+	<link rel="stylesheet" href="build/style.min.css">
 </head>
 <body>
 	<div class="container" id="part1">
@@ -27,17 +23,16 @@
 		<h1 class="title">第二部分：商品列表</h1>
 	</div>
 
-	<script src="//g.alicdn.com/kissy/k/1.4.7/seed.js"></script>
+	<script src="//g.alicdn.com/kissy/k/1.4.7/seed.js" data-config="{combine:true}"></script>
 	<script>
 		KISSY.config({
-			combine: false,
 		    packages: {
 		        mock: {
 		            base: 'http://mockjs.com/dist/'
 		        },
 		        components: {
-		        	base: 'script',
-		        	ignorePackageNameInUri: true
+		        	base: 'build',
+		        	combine: false
 		        }
 		    }
 		});

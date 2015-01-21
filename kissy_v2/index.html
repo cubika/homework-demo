@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+	<title>Demo</title>
+	<link rel="stylesheet" href="build/style.min.css">
+</head>
+<body>
+	<div class="container" id="part1">
+		<h1 class="title">第一部分：图片轮播</h1>
+		<div id="J_Slide">
+	        <ul class="ks-xslide-nav">
+	        </ul>  
+	        <ul class="ks-xslide-layer">
+	           <li class="ks-xslide-item current">
+	           		<img src="img/1.png" alt="">
+	           </li>
+	           <li class="ks-xslide-item">
+	           		<img src="img/2.jpg" alt="">
+	           </li>
+	           <li class="ks-xslide-item">
+	           		<img src="img/3.jpg" alt="">
+	           </li>
+	           <li class="ks-xslide-item">
+	           		<img src="img/4.jpg" alt="">
+	           </li>
+	        </ul>
+      	</div>
+	</div>
+	
+
+	<div class="container" id="part2">
+		<h1 class="title">第二部分：商品列表</h1>
+	</div>
+
+	<script src="//g.alicdn.com/kissy/k/1.4.7/seed.js" data-config="{combine:true}"></script>
+	<script>
+		KISSY.config({
+		    packages: {
+		        mock: {
+		            base: 'http://mockjs.com/dist/'
+		        },
+		        components: {
+		        	base: 'script',
+		        	combine: false,
+		        	ignorePackageNameInUri: true
+		        }
+		    }
+		});
+
+		KISSY.use('components/main');
+	</script>
+</body>
+</html>

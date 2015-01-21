@@ -1,0 +1,147 @@
+@import 'base';
+
+$proWidth: 210px;
+$gray: #666;
+$priceHeight: 30px;
+$boldFontWeight: 700;
+
+.product{
+	position: relative;
+	float: left;
+	padding: 0;
+	margin: 0;
+	margin-bottom: 20px;
+	line-height: 1.5;
+	z-index: 1;
+}
+
+.product-wrap{
+	width: $proWidth;
+	position: absolute;
+	padding: 4px;
+	padding-bottom: 0;
+	background-color: #fff;
+	border: 1px solid #f5f5f5;
+	@include border-radius(3px);
+	font-size: 12px;
+}
+
+.productImg-wrap a, .productImg-wrap img{
+	max-width: 100%;
+	max-height: $proWidth;
+}
+
+.productPrice {
+	font-family: arial,verdana,sans-serif!important;
+	font-size: 14px;
+	color: #C00;
+	height: $priceHeight;
+	line-height: $priceHeight;
+	margin: 0 0 5px;
+	white-space: nowrap;
+
+	em{
+		float: left;
+		font-family: arial;
+		font-weight: 400;
+		font-size: 20px;
+		height: $priceHeight;
+
+		b{
+			margin-right: 2px;
+			font-weight: $boldFontWeight;
+			font-size: 14px;
+			vertical-align: middle;
+		}
+	}
+}
+
+.productTitle{
+	position: relative;
+	color: #666;
+	height: 14px;
+	line-height: 14px;
+	margin-bottom: 3px;
+	font-size: 12px;
+	overflow: hidden;
+
+	a{
+		color: #333;
+
+		&:hover {
+			color: #c10001;
+			text-decoration: underline;
+		}
+	}
+}
+
+.productShop{
+	position: relative;
+	height: 22px;
+	line-height: 20px;
+	margin-bottom: 5px;
+	color: $gray;
+	white-space: nowrap;
+
+	a{
+		float: left;
+		color: $gray;
+		line-height: 20px;
+		height: 20px;
+		text-decoration: underline;
+		overflow: hidden;
+		word-break: break-all;
+	}
+}
+
+.productStatus{
+	position: relative;
+	height: 32px;
+	border: 0;
+	border-top: 1px solid #eee;
+	margin-bottom: 0;
+	color: $gray;
+
+	span{
+		float: left;
+		width: 49%;
+		line-height: 12px;
+		text-align: center;
+		padding: 10px 0px;
+		border-right: 1px solid #eee;
+		white-space: nowrap;
+
+		&:last-child{
+			border: 0;
+		}
+	}
+
+	em{
+		color: #b57c5b;
+		font-weight: $boldFontWeight;
+	}
+
+	 a{
+		color: #38b;
+		font-weight: $boldFontWeight;
+	}
+}
+
+
+@media (max-width: 800px) {
+	.product .product-wrap{
+		width: 100%;
+		position: relative;
+		overflow: hidden;
+		background-color: #fff;
+		@include border-radius(5px);
+		box-shadow: 0 1px 3px rgba(0,0,0,.25);
+	}
+	.product .productImg-wrap{
+		max-height: 240px;
+		overflow: hidden;
+	}
+	.product .productImg-wrap img{
+		width: 100%;
+	}
+}

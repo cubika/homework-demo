@@ -26,7 +26,12 @@ gulp.task('css', function() {
 });
 
 gulp.task('kmc', function() {
-	kmc.build('script/components/main.js','build/components/main.js');
+	var input = 'script/components/main.js',
+		output = 'build/components/main.js';
+	kmc.build(input, output);
+	gulp.src(output)
+		.pipe(uglify())
+		.pipe(gulp.dest('build/components'));
 });
 
 gulp.task('develop', function() {

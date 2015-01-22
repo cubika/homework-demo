@@ -21,13 +21,18 @@ kmc.config({
 gulp.task('sass', function () {
     gulp.src('sass/*')
         .pipe(sass())
-        // .pipe(minifyCss())
+        .pipe(minifyCss())
         .pipe(concat('style.min.css'))
         .pipe(gulp.dest('build'));
 });
 
 gulp.task('kmc', function() {
-	kmc.build('script/main.js','build/main.js');
+  var input = 'script/main.js',
+      output = 'build/main.js';
+	kmc.build(input, output);
+  gulp.src(output)
+    .pipe(uglify())
+    .pipe(gulp.dest('build'));
 });
 
 

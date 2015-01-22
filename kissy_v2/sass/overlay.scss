@@ -1,30 +1,25 @@
-$overlayPercent: 100%;
-
-.overlay{
-	background: #000;
+.ks-overlay{
 	position: fixed;
-	top: 0;
 	left: 0;
-	width: $overlayPercent;
-	height: $overlayPercent;
-	display: none;
-	z-index: 9999;
+	top: 0;
+}
 
+.overlayMask{
+	
 	img{
-		position: absolute;
 		cursor: pointer;
+		position: absolute;
 	}
-
+	
 	.description{
 		position: absolute;
-		bottom: 0;
 		left: 0;
 		right: 0;
+		bottom: 0;
 		text-align: center;
 	}
 
 	h3{
-		width: $overlayPercent;
 		font-weight: 400;
 		letter-spacing: 2px;
 		color: #fff;

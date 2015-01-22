@@ -1,28 +1,23 @@
-.overlay {
-  background: #000;
+.ks-overlay {
   position: fixed;
-  top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  z-index: 9999; }
-  .overlay img {
-    position: absolute;
-    cursor: pointer; }
-  .overlay .description {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center; }
-  .overlay h3 {
-    width: 100%;
-    font-weight: 400;
-    letter-spacing: 2px;
-    color: #fff;
-    padding: 10px 0 20px;
-    font-size: 16px; }
+  top: 0; }
+
+.overlayMask img {
+  cursor: pointer;
+  position: absolute; }
+.overlayMask .description {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center; }
+.overlayMask h3 {
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #fff;
+  padding: 10px 0 20px;
+  font-size: 16px; }
 
 .product {
   position: relative;
@@ -211,11 +206,12 @@ table {
     background: #f60; }
 
 @media (max-width: 800px) {
-  #JSlide {
-    max-height: 200px; } }
+  #J_Slide {
+    max-height: 150px; } }
 
 body {
-  background-color: #f5f5f5; }
+  background-color: #f5f5f5;
+  position: relative; }
 
 .title {
   color: #333;

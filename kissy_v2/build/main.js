@@ -2,7 +2,6 @@
 combined files : 
 
 components/data
-components/overlay
 components/main
 
 */
@@ -54,21 +53,30 @@ KISSY.add('components/data',function(S, Mock, XTemplate){
 }, {
 	requires: ['mock', 'xtemplate']
 });
-KISSY.add('components/overlay',function(S, DOM, Event) {
+KISSY.add('components/main',function(S, XSlide, mockdata, Event, Overlay, DOM) {
+	// 轮播
+	var slide = new XSlide({
+        renderTo: "#J_Slide",
+        autoRender:false,
+        autoSlide:true,
+        timeOut:3000,
+        crousel:true //开启旋转木马
+    });
+    slide.render();
 
+	// 填充商品列表
+	S.all("#part2").append(mockdata);
+
+	Event.on('a', 'click', function(e) {
+		e.preventDefault();
+	});
+
+	// 弹出浮层
+	var overlay;
 	var margins = {
 		vertical : 140,
 		horizontal : 220
 	};
-
-	var src = 
-		'<div class="overlay">\
-			<img src="" alt="">\
-			<div class="description">\
-				<h3 class="title"></h3>\
-			</div>\
-		</div>';
-
 	function getPosition(wrapper, img) {
 		var finalW, finalH,
 			imgW = img.width, 
@@ -107,6 +115,7 @@ KISSY.add('components/overlay',function(S, DOM, Event) {
 	}
 
 	function resizeHandler(img, margins) {
+		console.log("resize...");
 		var pos = getPosition({
 			width: S.all(window).width() - margins.horizontal,
 			height: S.all(window).height() - margins.vertical 
@@ -123,53 +132,43 @@ KISSY.add('components/overlay',function(S, DOM, Event) {
 		});
 	}
 
-	return function(imgs) {
-		var overlay = S.all(src);
-		DOM.append(overlay, document.body);
-		var img = S.all("img", overlay);
-		var title = S.all(".title", overlay);
-		Event.on(imgs, 'click', function(e) {
-			overlay.fadeIn(0.3);
-			var target = S.all(e.target);
-			DOM.attr(img, 'src', DOM.attr(target, 'src'));
-			DOM.text(title, DOM.text(S.all('.productTitle', DOM.parent(target, '.product'))));
-			resizeHandler(img, margins);
-		});
+	Event.on(S.all("img", "#part2"), 'click', function(e){
+		var target = S.all(e.target);
+		var src = 
+		'<div>\
+			<img id="overlayImg" src="' + DOM.attr(target, 'src') + '" alt="">\
+			<div class="description">\
+				<h3 class="title">' + DOM.text(S.all('.productTitle', DOM.parent(target, '.product'))) + '</h3>\
+			</div>\
+		</div>';
 
-		Event.on(overlay, 'click', function() {
-			if(DOM.css(overlay, 'display') != 'none') {
-				overlay.fadeOut(0.3);
-			}
-		});
-
-		Event.on(window, 'resize', function() {
-			resizeHandler(img, margins);
-		})
-	}
-
-}, {
-	requires: ['dom', 'event', 'node']
-})
-KISSY.add('components/main',function(S, XSlide, mockdata, Event, Overlay) {
-	// 轮播
-	var slide = new XSlide({
-        renderTo: "#J_Slide",
-        autoRender:false,
-        autoSlide:true,
-        timeOut:3000,
-        crousel:true //开启旋转木马
-    });
-    slide.render();
-
-	// 填充商品列表
-	S.all("#part2").append(mockdata);
-
-	Event.on('a', 'click', function(e) {
-		e.preventDefault();
+		if(overlay) {
+			overlay.destroy();
+		}
+		overlay = new Overlay( {
+		    zIndex: 10000,
+		    width: "100%",
+		    height: "100%",
+		    elCls: "overlayMask",
+			mask: true,
+		    content: src
+		  });
+		
+  		overlay.show();
+  		resizeHandler(S.all("#overlayImg"), margins);
 	});
 
-	// 弹出浮层
-	Overlay(S.all("img", "#part2"));
+	Event.delegate(document, 'click', '.overlayMask', function() {
+		if(overlay) {
+			overlay.hide();
+		}
+	});
+	Event.on(window, 'resize', function() {
+		if(S.all("#overlayImg")) {
+			resizeHandler(S.all("#overlayImg"), margins);
+		}
+	});
+
 }, {
-	requires: ["gallery/xslide/1.0/index", "./data", "event", "./overlay", "node"]
+	requires: ["gallery/xslide/1.0/index", "./data", "event", "overlay", "dom"]
 });
